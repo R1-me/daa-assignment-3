@@ -1,0 +1,29 @@
+Language: Java
+PASS setup: ping
+PASS DSU full n and q
+PASS kruskal full n and m
+PASS prim full n and m
+PASS SCC full n and m, deep chain
+PASS topo full n and m, deep chain
+PASS DAG full n and m, negative 64-bit distances
+PASS SCC full-size single component
+PASS topo full-size directed cycle
+PASS DAG full-size cycle unreachable from source
+reachable: reconstructPath(0, 3, edges, parentEdge) = [0, 1, 2, 3]; edge_ids=[0, 2, 3]; cost=0
+source: reconstructPath(0, 0, edges, parentEdge) = [0]; edge_ids=[]; cost=0
+unreachable: reconstructPath(0, 4, edges, parentEdge) = []; edge_ids=[]; cost=null
+tied and parallel: reconstructPath(0, 3, edges, parentEdge) = [0, 2, 3]; edge_ids=[2, 4]; cost=3
+cheaper parallel edge, nonzero source: reconstructPath(2, 0, edges, parentEdge) = [2, 1, 0]; edge_ids=[1, 2]; cost=3
+deep route: 100000 vertices, endpoints 0 and 99999, PASS
+PASS 6 route-helper tests
+{
+  "small_cases_passed": 399,
+  "small_batch_seconds": 0.10186661199986702,
+  "repeated_mixed_requests_passed": 1197,
+  "mixed_batch_seconds": 0.12009549899994454,
+  "alternative_and_invalid_witness_pairs_passed": 5,
+  "scale_cases_passed": 9,
+  "route_helper_tests_passed": 6,
+  "command": "python tests/run_tests.py",
+  "random_seed": 20261025
+}

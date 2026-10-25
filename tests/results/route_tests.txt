@@ -1,0 +1,7 @@
+reachable: reconstructPath(0, 3, edges, parentEdge) = [0, 1, 2, 3]; edge_ids=[0, 2, 3]; cost=0
+source: reconstructPath(0, 0, edges, parentEdge) = [0]; edge_ids=[]; cost=0
+unreachable: reconstructPath(0, 4, edges, parentEdge) = []; edge_ids=[]; cost=null
+tied and parallel: reconstructPath(0, 3, edges, parentEdge) = [0, 2, 3]; edge_ids=[2, 4]; cost=3
+cheaper parallel edge, nonzero source: reconstructPath(2, 0, edges, parentEdge) = [2, 1, 0]; edge_ids=[1, 2]; cost=3
+deep route: 100000 vertices, endpoints 0 and 99999, PASS
+PASS 6 route-helper tests

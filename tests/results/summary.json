@@ -1,0 +1,85 @@
+{
+  "small_cases_passed": 399,
+  "small_batch_seconds": 0.10186661199986702,
+  "repeated_mixed_requests_passed": 1197,
+  "mixed_batch_seconds": 0.12009549899994454,
+  "alternative_and_invalid_witness_pairs_passed": 5,
+  "scale_cases_passed": 9,
+  "scale_cases": [
+    {
+      "name": "DSU full n and q",
+      "n": 100000,
+      "items": 250000,
+      "seconds": 0.4923843249998754,
+      "expected_reason": "Chain merges, then repeated unions: state i is [n-i-1,i+2], then [1,n].",
+      "passed": true
+    },
+    {
+      "name": "kruskal full n and m",
+      "n": 100000,
+      "items": 250000,
+      "seconds": 0.34473006299958797,
+      "expected_reason": "All negative chain edges are necessary in the unique optimum; positive extras cannot improve it.",
+      "passed": true
+    },
+    {
+      "name": "prim full n and m",
+      "n": 100000,
+      "items": 250000,
+      "seconds": 0.5138236680013506,
+      "expected_reason": "All negative chain edges are necessary in the unique optimum; positive extras cannot improve it.",
+      "passed": true
+    },
+    {
+      "name": "SCC full n and m, deep chain",
+      "n": 100000,
+      "items": 250000,
+      "seconds": 0.5479650090001087,
+      "expected_reason": "All edges increase the vertex index, so each SCC is a singleton; repeated shortcut gives one extra condensation edge.",
+      "passed": true
+    },
+    {
+      "name": "topo full n and m, deep chain",
+      "n": 100000,
+      "items": 250000,
+      "seconds": 0.3951639389997581,
+      "expected_reason": "Chain forces the unique increasing order; shortcuts do not change it.",
+      "passed": true
+    },
+    {
+      "name": "DAG full n and m, negative 64-bit distances",
+      "n": 100000,
+      "items": 250000,
+      "seconds": 0.5051997729988216,
+      "expected_reason": "Negative chain is strictly cheaper than every shortcut; distance[v]=-v*10^9.",
+      "passed": true
+    },
+    {
+      "name": "SCC full-size single component",
+      "n": 100000,
+      "items": 250000,
+      "seconds": 0.4112540750011249,
+      "expected_reason": "Directed cycle visits all vertices, hence all vertices are mutually reachable.",
+      "passed": true
+    },
+    {
+      "name": "topo full-size directed cycle",
+      "n": 100000,
+      "items": 250000,
+      "seconds": 0.31172542800049996,
+      "expected_reason": "Last edge closes a cycle of length n.",
+      "passed": true
+    },
+    {
+      "name": "DAG full-size cycle unreachable from source",
+      "n": 100000,
+      "items": 250000,
+      "seconds": 0.32602068500091264,
+      "expected_reason": "Source 0 is isolated, but vertices 1..n-1 form a directed cycle.",
+      "passed": true
+    }
+  ],
+  "route_helper_tests_passed": 6,
+  "command": "python tests/run_tests.py",
+  "random_seed": 20261025
+}

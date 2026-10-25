@@ -1,0 +1,9 @@
+{
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "python": "3.12.14",
+  "java": "openjdk version \"17.0.20\" 2026-07-21\nOpenJDK Runtime Environment (build 17.0.20+8-1-24.04-Ubuntu)\nOpenJDK 64-Bit Server VM (build 17.0.20+8-1-24.04-Ubuntu, mixed mode, sharing)",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "logical_cpu_count": 9,
+  "java_heap": "-Xmx384m",
+  "compiler_note": "The host has the JDK compiler module but no javac launcher. A local wrapper invokes java -m jdk.compiler/com.sun.tools.javac.Main; no project file depends on the wrapper."
+}
