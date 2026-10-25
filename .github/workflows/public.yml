@@ -5,27 +5,23 @@ permissions:
 jobs:
   checks:
     runs-on: ubuntu-24.04
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - uses: actions/setup-java@v6
+      - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
-      - uses: actions/setup-python@v7
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - uses: actions/setup-dotnet@v6
-        with:
-          dotnet-version: '8.0.x'
-      - name: Test public checking tools
+      - name: Test public checking tools and Java transport
         run: python -m unittest discover -s tools -p "test_*.py"
-      - name: Compile and launch selected language
+      - name: Compile and launch Java
         run: python tools/run.py --setup
-      - name: Check all template languages
-        if: github.repository == 'RZhaniya/daa-assignment-3-graphs'
-        run: python -c "import subprocess; [subprocess.run(['python','tools/run.py','--language',lang,'--setup'],check=True) for lang in ['Java','Python','Cpp','CSharp']]"
-      - name: Check your algorithms and request-state reset
-        if: github.repository != 'RZhaniya/daa-assignment-3-graphs'
+      - name: Check all public cases and request-state reset
         run: python tools/run.py --check
+      - name: Check own cases and route reconstruction
+        run: python tests/run_tests.py
